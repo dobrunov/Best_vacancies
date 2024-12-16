@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-class AllVacanciesPage extends StatelessWidget {
+class AllVacanciesScreen extends StatelessWidget {
   final List<Map<String, dynamic>> vacancies;
 
-  const AllVacanciesPage({super.key, required this.vacancies});
+  const AllVacanciesScreen({super.key, required this.vacancies});
 
   @override
   Widget build(BuildContext context) {

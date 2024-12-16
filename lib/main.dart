@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
-import 'company_list_screen.dart';
+import 'screens/company_list_screen.dart';
 
 void main() {
   sqfliteFfiInit();

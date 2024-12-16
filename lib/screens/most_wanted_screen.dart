@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class MostWantedPage extends StatelessWidget {
+class MostWantedScreen extends StatelessWidget {
   final List<String> skills;
 
-  const MostWantedPage({super.key, required this.skills});
+  const MostWantedScreen({super.key, required this.skills});
 
   @override
   Widget build(BuildContext context) {

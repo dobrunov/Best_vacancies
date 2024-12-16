@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-import 'database_helper.dart';
+import '../database_helper.dart';
 
-class CompanyPage extends StatefulWidget {
+class CompanyScreen extends StatefulWidget {
   final Map<String, dynamic> company;
 
-  const CompanyPage({super.key, required this.company});
+  const CompanyScreen({super.key, required this.company});
 
   @override
-  State<CompanyPage> createState() => _CompanyPageState();
+  State<CompanyScreen> createState() => _CompanyScreenState();
 }
 
-class _CompanyPageState extends State<CompanyPage> {
+class _CompanyScreenState extends State<CompanyScreen> {
   final DatabaseHelper _dbHelper = DatabaseHelper.instance;
   late final Map<String, dynamic> company;
 

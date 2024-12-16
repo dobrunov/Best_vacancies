@@ -2,10 +2,10 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import 'all_vacancies_page.dart';
-import 'company_page.dart';
-import 'database_helper.dart';
-import 'most_wanted_skills.dart';
+import '../database_helper.dart';
+import 'all_vacancies_screen.dart';
+import 'company_screen.dart';
+import 'most_wanted_screen.dart';
 
 class CompanyListScreen extends StatefulWidget {
   const CompanyListScreen({super.key});
@@ -117,7 +117,7 @@ class CompanyListScreenState extends State<CompanyListScreen> {
       Navigator.push(
         currentContext,
         MaterialPageRoute(
-          builder: (context) => MostWantedPage(skills: mostWantedSkills),
+          builder: (context) => MostWantedScreen(skills: mostWantedSkills),
         ),
       );
     }
@@ -133,7 +133,7 @@ class CompanyListScreenState extends State<CompanyListScreen> {
       Navigator.push(
         currentContext,
         MaterialPageRoute(
-          builder: (context) => AllVacanciesPage(vacancies: vacancies),
+          builder: (context) => AllVacanciesScreen(vacancies: vacancies),
         ),
       );
     }
@@ -146,7 +146,7 @@ class CompanyListScreenState extends State<CompanyListScreen> {
       Navigator.push(
         currentContext,
         MaterialPageRoute(
-          builder: (context) => CompanyPage(company: company),
+          builder: (context) => CompanyScreen(company: company),
         ),
       );
     }
