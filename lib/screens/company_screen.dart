@@ -160,12 +160,6 @@ class _CompanyScreenState extends State<CompanyScreen> {
               );
             },
           ),
-          ElevatedButton(
-            onPressed: () async {
-              _showVacancyForm(context, widget.company['id']);
-            },
-            child: const Text('Add vacancy'),
-          ),
           IconButton(
             icon: const Icon(Icons.delete),
             onPressed: () async {
@@ -183,9 +177,6 @@ class _CompanyScreenState extends State<CompanyScreen> {
         child: Column(
           children: [
             ListTile(
-              title: Text('Name: ${widget.company['name']}'),
-            ),
-            ListTile(
               title: Text('Website: ${widget.company['website']}'),
             ),
             ListTile(
@@ -196,6 +187,17 @@ class _CompanyScreenState extends State<CompanyScreen> {
             ),
             ListTile(
               title: Text('LinkedIn: ${widget.company['linkedIn']}'),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    _showVacancyForm(context, widget.company['id']);
+                  },
+                  child: const Text('Add vacancy'),
+                ),
+              ],
             ),
           ],
         ),

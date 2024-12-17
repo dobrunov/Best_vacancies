@@ -117,7 +117,7 @@ class DatabaseHelper {
     final db = await instance.database;
     log('fetchAndProcessSkills - Getting database connection');
 
-    // Step 1: Extracting all skills
+    // Extracting all skills
     log('fetchAndProcessSkills - Executing query to get skills');
     final skillsQuery = await db.rawQuery('''
     SELECT skills
@@ -126,7 +126,7 @@ class DatabaseHelper {
   ''');
     log('fetchAndProcessSkills - Query executed, found ${skillsQuery.length} records');
 
-    // Step 2: Splitting skills and gathering all skills in one list
+    // Splitting skills and gathering all skills in one list
     List<String> allSkills = [];
     for (var row in skillsQuery) {
       final skills = row['skills'] as String;
@@ -135,7 +135,7 @@ class DatabaseHelper {
     }
     log('fetchAndProcessSkills - Processed ${allSkills.length} skills');
 
-    // Step 3: Counting the frequency of each skill
+    // Counting the frequency of each skill
     final Map<String, int> skillCount = {};
     for (var skill in allSkills) {
       if (skill.isNotEmpty) {
@@ -149,13 +149,13 @@ class DatabaseHelper {
       log('fetchAndProcessSkills - Skill "$skill" appears $count times');
     });
 
-    // Step 4: Applying threshold as a percentage of the total number of vacancies
+    // Applying threshold as a percentage of the total number of vacancies
     final totalVacancies = skillsQuery.length;
     final thresholdCount = (totalVacancies * thresholdPercentage / 100).ceil(); // Number of vacancies that should contain the skill
 
     log('fetchAndProcessSkills - Threshold: at least $thresholdCount vacancies');
 
-    // Step 5: Filtering skills by threshold
+    // Filtering skills by threshold
     final filteredSkills = skillCount.entries
         .where((entry) => entry.value >= thresholdCount) // Comparing with the calculated threshold
         .map((entry) => entry.key)
